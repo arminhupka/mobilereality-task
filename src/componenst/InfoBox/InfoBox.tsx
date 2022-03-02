@@ -11,7 +11,10 @@ const InfoBoxWrapper = styled.div<{ bg?: string }>`
 	justify-content: center;
 	align-items: center;
 	text-align: center;
-	aspect-ratio: 1;
+
+	@media screen and (min-width: 768px) {
+		aspect-ratio: 1;
+	}
 
 	& > * {
 		margin-bottom: 4rem;
