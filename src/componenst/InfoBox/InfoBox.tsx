@@ -3,18 +3,13 @@ import styled, { css } from 'styled-components'
 
 // Styled Components
 const InfoBoxWrapper = styled.div<{ bg?: string }>`
-	height: 100%;
-	width: 100%;
 	position: relative;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	text-align: center;
-
-	@media screen and (min-width: 768px) {
-		aspect-ratio: 1;
-	}
+	aspect-ratio: 1;
 
 	& > * {
 		margin-bottom: 4rem;

@@ -9,6 +9,7 @@ import InfoBox from '../InfoBox/InfoBox'
 
 // Styled Components
 const InnerContainer = styled.div`
+	position: relative;
 	padding: 4rem;
 `
 
