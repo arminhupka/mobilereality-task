@@ -1,12 +1,24 @@
-import React, { ReactElement, useEffect, useState } from 'react'
+import React, { ReactElement, useState } from 'react'
 import { nanoid } from 'nanoid'
+import { useNavigate } from 'react-router-dom'
+import styled from 'styled-components'
 import api from '../utils/api'
 import { NewVoteInterface } from '../interface/vote.interface'
 
-const AddVote = (): ReactElement => {
-	const [voteMessage, setVoteMessage] = useState<string>('')
+// Styled Components
+const Wrapper = styled.div`
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+`
 
-	const addVote = async () => {
+const AddVote = (): ReactElement => {
+	const navigate = useNavigate()
+	const [voteAdded, setVoteAdded] = useState<boolean>(false)
+	const [message, setMessage] = useState<string>('')
+
+	const handleAddVoteButton = async () => {
+		setMessage('')
 		try {
 			const { data }: { data: NewVoteInterface } = await api({
 				method: 'POST',
@@ -17,22 +29,27 @@ const AddVote = (): ReactElement => {
 					value: 1,
 				},
 			})
-			setVoteMessage(data.message)
+			setVoteAdded(true)
+			setMessage(data.message)
 		} catch (err) {
 			console.log(err)
 		}
 	}
 
-	useEffect(() => {
-		if (voteMessage) {
-			alert(voteMessage)
-		}
-	}, [voteMessage])
+	const handleBackButton = () => navigate(-1)
 
 	return (
-		<button type='button' onClick={addVote}>
-			VOTE
-		</button>
+		<Wrapper>
+			{voteAdded && (
+				<button type='button' onClick={handleBackButton}>
+					Back to list
+				</button>
+			)}
+			<button type='button' onClick={handleAddVoteButton}>
+				VOTE
+			</button>
+			<span>{message}</span>
+		</Wrapper>
 	)
 }
 

@@ -19,14 +19,13 @@ const VotesList = () => {
 		}
 	}
 
-	const deleteVote = async (voteId: number) => {
+	const handleDeleteVoteButton = async (voteId: number) => {
 		try {
-			const { data } = await api({
+			setIsLoading(true)
+			await api({
 				method: 'DELETE',
 				url: `/votes/${voteId}`,
 			})
-
-			console.log(data)
 
 			await getVotes()
 		} catch (err) {
@@ -59,7 +58,7 @@ const VotesList = () => {
 						<Link to={`/votes/${vote.id}`}>
 							<span>Vote: {vote.id}</span>
 						</Link>
-						<button type='button' onClick={() => deleteVote(vote.id)}>
+						<button type='button' onClick={() => handleDeleteVoteButton(vote.id)}>
 							DELETE VOTE
 						</button>
 					</li>
