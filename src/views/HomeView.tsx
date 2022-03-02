@@ -15,7 +15,6 @@ const PageLayout = styled.div`
 
 	@media screen and (min-width: 992px) {
 		grid-template-columns: 1fr 1fr;
-		}
 	}
 `
 

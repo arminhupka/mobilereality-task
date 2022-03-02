@@ -42,7 +42,7 @@ const OfferBox = (): ReactElement => (
 				nobis officia quam quibusdam quos ratione repudiandae similique sunt vel
 				veniam voluptate! Alias eos expedita unde?
 			</p>
-			<LinkButton href='http://localhost:3000/votes' title='Zobacz więcej' />
+			<LinkButton href='/votes' title='Zobacz więcej' />
 		</InnerContainer>
 	</InfoBox>
 )

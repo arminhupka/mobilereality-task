@@ -25,6 +25,7 @@ const ImageWrapper = styled.div<{ bg?: string }>`
 	align-items: center;
 	justify-content: center;
 	background: ${({ theme }) => theme.gradient};
+
 	aspect-ratio: 1;
 
 	${({ bg }) =>
