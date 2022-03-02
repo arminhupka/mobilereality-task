@@ -44,6 +44,15 @@ const VotesList = () => {
 
 	return (
 		<div>
+			<nav>
+				<ul>
+					<li>
+						<Link to='/add'>
+							<span>Add Vote</span>
+						</Link>
+					</li>
+				</ul>
+			</nav>
 			<ul>
 				{votes.map(vote => (
 					<li key={vote.id}>
