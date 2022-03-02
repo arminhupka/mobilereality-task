@@ -1,26 +1,19 @@
 import React from 'react'
-import logo from './logo.svg'
-import './App.css'
+import { Routes, Route } from 'react-router-dom'
 
-function App() {
-	return (
-		<div className='App'>
-			<header className='App-header'>
-				<img src={logo} className='App-logo' alt='logo' />
-				<p>
-					Edit <code>src/App.tsx</code> and save to reload.
-				</p>
-				<a
-					className='App-link'
-					href='https://reactjs.org'
-					target='_blank'
-					rel='noopener noreferrer'
-				>
-					Learn React
-				</a>
-			</header>
-		</div>
-	)
-}
+// Views
+import HomeView from './views/HomeView'
+import VotesList from './views/VotesList'
+import AddVote from './views/AddVote'
+import VoteDetails from './views/VoteDetails'
+
+const App = () => (
+	<Routes>
+		<Route path='/' element={<HomeView />} />
+		<Route path='/votes' element={<VotesList />} />
+		<Route path='/add' element={<AddVote />} />
+		<Route path='/votes/:id' element={<VoteDetails />} />
+	</Routes>
+)
 
 export default App
